@@ -14,6 +14,9 @@ call plug#end()
 let g:neomake_python_enabled_makers = ['pylint']
 set number
 
+map <silent> <C-W> :NERDTreeToggle<CR>
+let NERDTreeShowHidden=1
+
 let g:deoplete#enable_at_startup = 1
 colorscheme gruvbox
 set notermguicolors
