@@ -14,7 +14,8 @@ alias j=julia
 alias m="matlab -nodesktop -nosplash"
 alias todoist="todoist &> /dev/null"
 alias muscle="~/muscle3.8.31_i86darwin64"
-alias info="docker exec -it 9d9b53e7390dd7ec273901f15733581bb0e18825b69b757bd47a0a3188af4507  /bin/zsh"
+alias bioinfo_new="docker run -i -v /Users/jbwdn/docker_shared:/home/jake/shared informatics:Dockerfile; exit"
+alias bioinfo="docker exec -it adoring_tharp /bin/zsh"
 alias webserver="python3 -m http.server --cgi 8080"
 
 # Git aliases:
