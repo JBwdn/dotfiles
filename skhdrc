@@ -1,0 +1,64 @@
+# JAKE'S SKHD CONFIG...
+
+# Shortcuts: ---------------------------------------------------- #
+alt - return : ~/Applications/iTerm\ 2.app/Contents/MacOS/iTerm2 &>/dev/null 
+alt - b : /Applications/Brave\ Browser.app/Contents/MacOS/Brave\ Browser
+alt - c : code
+
+# Window management: -------------------------------------------- #
+
+# Toggle window padding:
+alt - a : yabai -m space --toggle padding; yabai -m space --toggle gap
+
+# Increase/decrease window padding:
+shift + alt - k : yabai -m space --gap rel:10; yabai -m space --padding rel:10:10:10:10
+shift + alt - j : yabai -m space --gap rel:-10; yabai -m space --padding rel:-10:-10:-10:-10
+
+# Change window focus:
+alt - h : yabai -m window --focus west
+alt - j : yabai -m window --focus south
+alt - k : yabai -m window --focus north
+alt - l : yabai -m window --focus east
+
+# Move windows:
+cmd + alt - h : yabai -m window --warp west
+cmd + alt - j : yabai -m window --warp south
+cmd + alt - k : yabai -m window --warp north
+cmd + alt - l : yabai -m window --warp east
+
+# Resize windows horizontally:
+shift + alt - h : yabai -m window --resize left:-20:0; yabai -m window --resize right:-20:0
+shift + alt - l : yabai -m window --resize left:20:0; yabai -m window --resize right:20:0
+
+# Focus desktop according to number:
+# alt - 1 : yabai -m space --focus 1
+# alt - 2 : yabai -m space --focus 2
+# alt - 3 : yabai -m space --focus 3
+# alt - 4 : yabai -m space --focus 4
+# alt - 5 : yabai -m space --focus 5
+
+# Cycle desktop:
+alt - m : yabai -m space --focus next || yabai -m space --focus first
+alt - n : yabai -m space --focus prev || yabai -m space --focus last
+
+# Rotate tree:
+alt - r : yabai -m space --rotate 90
+
+# Window native fullscreen:
+alt - f : yabai -m window --toggle native-fullscreen
+
+# Toggle window split type:
+alt - e : yabai -m window --toggle split
+
+# Create desktop, move window and follow focus (requires jq):
+shift + ctrl - n : yabai -m space --create && \
+                   index="$(yabai -m query --spaces --display | jq 'map(select(."native-fullscreen" == 0))[-1].index')" && \
+                   yabai -m window --space "${index}" && \
+                   yabai -m space --focus "${index}"
+
+# Move window to desktop and focus:
+shift + ctrl - 1 : yabai -m window --space  1; yabai -m space --focus 1
+shift + ctrl - 2 : yabai -m window --space  2; yabai -m space --focus 2
+shift + ctrl - 3 : yabai -m window --space  3; yabai -m space --focus 3
+shift + ctrl - 4 : yabai -m window --space  4; yabai -m space --focus 4
+shift + ctrl - 5 : yabai -m window --space  5; yabai -m space --focus 5
