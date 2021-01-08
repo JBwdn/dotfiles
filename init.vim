@@ -1,16 +1,12 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
-Plug 'davidhalter/jedi-vim'
-Plug 'zchee/deoplete-jedi'
-Plug 'vim-airline/vim-airline'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'neomake/neomake'
 Plug 'jiangmiao/auto-pairs'
 Plug 'scrooloose/nerdcommenter'
-Plug 'davidhalter/jedi-vim'
 Plug 'scrooloose/nerdtree'
-Plug 'neomake/neomake'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'machakann/vim-highlightedyank'
-Plug 'tmhedberg/SimpylFold'
 Plug 'morhetz/gruvbox'
 
 call plug#end()
@@ -18,13 +14,7 @@ call plug#end()
 let g:neomake_python_enabled_makers = ['pylint']
 set number
 
-
-" disable autocompletion, because we use deoplete for completion
-let g:jedi#completions_enabled = 0
-
-" open the go-to function in split, not another buffer
-let g:jedi#use_splits_not_buffers = "right"
-
+let g:deoplete#enable_at_startup = 1
 colorscheme gruvbox
 set notermguicolors
 set background=dark
